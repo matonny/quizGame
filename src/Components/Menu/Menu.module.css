@@ -1,0 +1,14 @@
+.title{
+    color: var(--darkestblue);
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    margin-right: -0.5em;
+    padding: 0;
+}
+.quiz{
+    background-color: var(--background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

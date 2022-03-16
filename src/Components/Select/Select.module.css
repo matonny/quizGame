@@ -1,0 +1,17 @@
+.label{
+    color: var(--darkestblue);
+    font-size:20px;
+}
+.select{
+    width:70px;
+    margin: 0 5px;
+    border-radius: 5px;
+    border: 1px solid var(--darkestblue)
+}
+.selectWrapper{
+    margin:10px 0;
+    display: flex;
+    max-width: 400px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
