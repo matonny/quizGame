@@ -1,0 +1,10 @@
+.answer{
+    width:150px;
+    height: 50px;
+    border: 1px solid var(--darkerblue);
+    border-radius: 10px;
+    background-color: var(--background);
+}
+.chosen{
+    background-color: var(--darkerblue);
+}

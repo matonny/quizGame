@@ -3,7 +3,7 @@ import Select from '../Select/Select.js'
 import styles from './Form.module.css'
 
 
-export default function Form(){
+export default function Form(props){
     const [quizSetting, setQuizSetting] = React.useState(
         {
             amount: "",
@@ -21,7 +21,7 @@ export default function Form(){
     const amount = {
         id:"amount",
         label: "Choose number of questions",
-        values: [5,6,7,8,9,10]
+        values: [1,2,3,4,5,6,7,8,9,10]
     }   
     function handleChange(event){
         setDisplayError(false)
@@ -49,9 +49,8 @@ export default function Form(){
         let request = "https://opentdb.com/api.php?"
         request += `amount=${quizSetting.amount}`;
         request += (quizSetting.difficulty != "any" ? `&difficulty=${quizSetting.difficulty}` : "")
-        fetch(request)
-            .then(res => res.json())
-            .then(data => console.log(data));
+        props.sendQuestions(request);
+            
     }
     return(
         <form className={styles.form} onSubmit={handleSubmit}>
