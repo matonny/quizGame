@@ -1,33 +1,37 @@
 import React from 'react'
 import Answer from '../Answer/Answer'
+import styles from './Question.module.css'
 
-export default function Question(prop){
+export default function Question(props){
+
     const [userAnswer, setUserAnswer] = React.useState(-1);
-    const incorrectAnswerNumber = prop.incorrect_answers.length;
-    const goodAnswerPosition = Math.floor(Math.random()*(incorrectAnswerNumber+1));
-    const allAnswers = prop.incorrect_answers;
-    allAnswers.splice(goodAnswerPosition, 0, prop.correct_answer)
-    const idAnswers = allAnswers.map((answer, index) =>{
-        return({
-        answer: answer,
-        id: index
-            }
-        )
-    })
-    console.log(idAnswers)
+
+    React.useEffect(()=>{
+        props.setResponse((prevAllAnswers)=>{
+            prevAllAnswers[props.id] = props.allAnswers[userAnswer] ? props.allAnswers[userAnswer].answer : "unanswered" 
+            return prevAllAnswers
+        })
+        console.log(props.allAnswers)
+        console.log(props.debug)
+    }, [userAnswer])
+
+    console.log()
     return (
-        <div>
-            <h2>{prop.question}</h2>
-            <ul>
+        <div className={styles.wrapper}>
+            <h2 className={styles.questionText}>{props.questionText}</h2>
+            <ul className={styles.answerList}>
                 {
-                idAnswers.map((answer)=>{
-                    console.log(idAnswers.length)
-                    return <Answer 
-                        correct={prop.correct_answer===answer.answer}
-                        text={answer.answer}
-                        chosen={userAnswer===answer.id}
-                        handleClick={()=>setUserAnswer(answer.id)}/>
-                })}
+                    props.allAnswers.map((answer)=>{
+                        return <Answer 
+                            key={answer.id}
+                            correct={props.correctAnswer===answer.answer}
+                            text={answer.answer}
+                            chosen={userAnswer===answer.id}
+                            handleClick={props.showCorrect ? ()=>{} : ()=>setUserAnswer(answer.id)}
+                            showCorrect= {props.showCorrect}
+                            />
+                    })
+                }
             </ul>
         </div>   
     )

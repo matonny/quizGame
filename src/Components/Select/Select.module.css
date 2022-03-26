@@ -1,12 +1,12 @@
 .label{
-    color: var(--darkestblue);
+    color: var(--darkblue);
     font-size:20px;
 }
 .select{
     width:70px;
     margin: 0 5px;
     border-radius: 5px;
-    border: 1px solid var(--darkestblue)
+    border: 1px solid var(--darkblue)
 }
 .selectWrapper{
     margin:10px 0;

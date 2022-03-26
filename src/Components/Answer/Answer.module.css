@@ -1,10 +1,22 @@
 .answer{
-    width:150px;
-    height: 50px;
-    border: 1px solid var(--darkerblue);
-    border-radius: 10px;
+    padding: 5px 10px;
+    margin: 0px 20px;
+    border: 1px solid var(--darkblue);
+    min-width: 60px;
+    border-radius: 20px;
+    color: var(--darkblue);
     background-color: var(--background);
+    cursor: pointer;
 }
 .chosen{
-    background-color: var(--darkerblue);
+    background-color: var(--lightblue);
+    border: 1px solid var(--lightblue)
+}
+.correct{
+    background-color: var(--green);
+    border: 1px solid var(--green) 
+}
+.wrong{
+    background-color: var(--red);
+    border: 1px solid var(--red) 
 }

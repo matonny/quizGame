@@ -1,0 +1,11 @@
+.questionText{
+    color: var(--darkblue);
+    font-size: 16px;
+}
+.wrapper{
+    border-bottom: 1px solid var(--blue);
+    max-width: 800px;
+}
+.answerList{
+    display: flex;
+}
