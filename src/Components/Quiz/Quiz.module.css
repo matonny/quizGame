@@ -1,0 +1,14 @@
+.submit{
+    margin:20px 0;
+    background-color: var(--darkblue);
+    width:150px;
+    height: 50px;
+    border-radius: 10px;
+    border:none;
+    color: var(--background);
+    font-size:16px;
+    cursor: pointer;
+}
+.score{
+    min-height: 30px;
+}

@@ -15,7 +15,7 @@ export default function Question(props){
 
     return (
         <div className={styles.wrapper}>
-            <h2 className={styles.questionText}>{props.questionText}</h2>
+            <h2 className={styles.questionText}> {props.id+1}. {props.questionText}</h2>
             <ul className={styles.answerList}>
                 {
                     props.allAnswers.map((answer)=>{

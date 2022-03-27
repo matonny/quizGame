@@ -1,5 +1,6 @@
 import React from "react";
 import Question from "../Question/Question.js";
+import styles from "./Quiz.module.css";
 
 export default function Quiz(props){
     const [allUserResponses, setAllUserResponses] = React.useState([...Array(props.questions.length).fill("unanswered")]);
@@ -12,6 +13,12 @@ export default function Quiz(props){
         }else{
             setShowCorrect(true);
         }
+    }
+    function calculateScore(){
+        const correctAnswers = props.questions.filter((question) => {
+            return allUserResponses[question.id] === question.correctAnswer;
+        }).length;
+        return correctAnswers + "/" + props.questions.length;
     }
     return (
         <div className="quiz">
@@ -27,7 +34,12 @@ export default function Quiz(props){
                 })
                
             }
-             <button onClick={handleCompletion}>{showCorrect ? "Try again!" : "Show results!" }</button>
+             <button className={styles.submit} onClick={handleCompletion}>{showCorrect ? "Try again!" : "Show results!" }</button>
+             <p className={styles.score}>
+             {showCorrect ? ("You scored " + calculateScore() + " point" + (props.questions.length > 1 ? "s." : "."))
+             : ""}
+             </p>
+
         </div>
     );
 }
