@@ -1,6 +1,6 @@
-import React from 'react'
-import Answer from '../Answer/Answer'
-import styles from './Question.module.css'
+import React from "react";
+import Answer from "../Answer/Answer";
+import styles from "./Question.module.css";
 
 export default function Question(props){
 
@@ -8,14 +8,11 @@ export default function Question(props){
 
     React.useEffect(()=>{
         props.setResponse((prevAllAnswers)=>{
-            prevAllAnswers[props.id] = props.allAnswers[userAnswer] ? props.allAnswers[userAnswer].answer : "unanswered" 
-            return prevAllAnswers
-        })
-        console.log(props.allAnswers)
-        console.log(props.debug)
-    }, [userAnswer])
+            prevAllAnswers[props.id] = props.allAnswers[userAnswer] ? props.allAnswers[userAnswer].answer : "unanswered" ;
+            return prevAllAnswers;
+        });
+    }, [props, userAnswer]);
 
-    console.log()
     return (
         <div className={styles.wrapper}>
             <h2 className={styles.questionText}>{props.questionText}</h2>
@@ -29,10 +26,10 @@ export default function Question(props){
                             chosen={userAnswer===answer.id}
                             handleClick={props.showCorrect ? ()=>{} : ()=>setUserAnswer(answer.id)}
                             showCorrect= {props.showCorrect}
-                            />
+                            />;
                     })
                 }
             </ul>
         </div>   
-    )
+    );
 }

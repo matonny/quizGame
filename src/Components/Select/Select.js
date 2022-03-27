@@ -1,5 +1,5 @@
-import React from 'react'
-import styles from "./Select.module.css"
+import React from "react";
+import styles from "./Select.module.css";
 
 export default function Select(props){
     return(
@@ -9,10 +9,10 @@ export default function Select(props){
             <option value="">choose</option>
             {
                 props.values.map((value)=>{
-                    return <option key={value} value={value}>{value}</option>
+                    return <option key={value} value={value}>{value}</option>;
                 })
             }
         </select>
     </div>
-    )
+    );
 }

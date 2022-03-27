@@ -10,13 +10,13 @@
 }
 .chosen{
     background-color: var(--lightblue);
-    border: 1px solid var(--lightblue)
+    border: 1px solid var(--lightblue);
 }
 .correct{
     background-color: var(--green);
-    border: 1px solid var(--green) 
+    border: 1px solid var(--green);
 }
 .wrong{
     background-color: var(--red);
-    border: 1px solid var(--red) 
+    border: 1px solid var(--red);
 }

@@ -1,23 +1,22 @@
-import React from 'react'
-import styles from './Answer.module.css'
+import React from "react";
+import styles from "./Answer.module.css";
 
 export default function Answer(props){
-    console.log(props)
-    let className = `${styles.answer} `
+    let className = `${styles.answer} `;
     
     if(props.chosen){
         if(props.showCorrect){
             if(props.correct){
-                className += styles.correct
+                className += styles.correct;
             }else{
-                className += styles.wrong
+                className += styles.wrong;
             }
         }else{
-            className += styles.chosen
+            className += styles.chosen;
         }
     }else{
         if(props.showCorrect && props.correct){
-            className += styles.correct
+            className += styles.correct;
         }
     }
     return(
@@ -25,5 +24,5 @@ export default function Answer(props){
             onClick={props.handleClick}>
             {[props.text]}
         </p>
-    )
+    );
 }

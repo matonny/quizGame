@@ -5,6 +5,8 @@
 .wrapper{
     border-bottom: 1px solid var(--blue);
     max-width: 800px;
+    display: flex;
+    flex-direction: column;
 }
 .answerList{
     display: flex;
