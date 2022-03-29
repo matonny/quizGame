@@ -1,15 +1,15 @@
-import React from "react";
-import Question from "../Question/Question.js";
+import React, {useState} from "react";
+import {Question} from "../Question/Question.js";
 import styles from "./Quiz.module.css";
 
-export default function Quiz(props){
-    const [allUserResponses, setAllUserResponses] = React.useState([...Array(props.questions.length).fill("unanswered")]);
-    const [showCorrect, setShowCorrect] = React.useState(false);
+function Quiz(props){
+    const [allUserResponses, setAllUserResponses] = useState([...Array(props.questions.length).fill("unanswered")]);
+    const [showCorrect, setShowCorrect] = useState(false);
     console.log(props.questions);
-
+    
     function handleCompletion(){
         if(showCorrect){
-            props.reset();
+            props.reset("");
         }else{
             setShowCorrect(true);
         }
@@ -43,3 +43,4 @@ export default function Quiz(props){
         </div>
     );
 }
+export {Quiz};
