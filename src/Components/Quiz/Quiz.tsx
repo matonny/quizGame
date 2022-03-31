@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Question} from "../Question/Question.js";
+import {Question} from "../Question/Question";
 import styles from "./Quiz.module.css";
 
 function Quiz(props){

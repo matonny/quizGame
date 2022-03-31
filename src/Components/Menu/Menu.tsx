@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Menu.module.css";
 
-import { Form } from "../Form/Form.js";
+import { Form } from "../Form/Form";
 
 function Menu(props) {
   return (

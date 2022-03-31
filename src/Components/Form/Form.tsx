@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Select } from "../Select/Select.js";
+import { Select } from "../Select/Select";
 import styles from "./Form.module.css";
 import he from "he";
 

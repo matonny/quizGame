@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import "./App.css";
-import {Menu} from "./Components/Menu/Menu.js";
-import {Quiz} from "./Components/Quiz/Quiz.js";
+import {Menu} from "./Components/Menu/Menu";
+import {Quiz} from "./Components/Quiz/Quiz";
 
 function App() {
   const [quizQuestions, setQuizQuestions] = useState();
