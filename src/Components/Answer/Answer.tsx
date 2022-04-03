@@ -1,8 +1,14 @@
-import React from "react";
+import React, { MouseEventHandler } from "react";
 import styles from "./Answer.module.css";
 import clsx from "clsx";
 
-function Answer(props) {
+function Answer(props:{
+  chosen: boolean;
+  showCorrect: boolean;
+  correct: boolean;
+  text: string;
+  handleClick: MouseEventHandler<HTMLParagraphElement>;
+}) {
   const className = clsx(
     styles.answer,
     props.chosen && styles.chosen,

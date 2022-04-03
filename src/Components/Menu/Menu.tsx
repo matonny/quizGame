@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./Menu.module.css";
-import {Question} from "../../Common/types";
+import {IQuestion} from "../../Common/types";
 import { Form } from "../Form/Form";
 
 function Menu(props: {
-  sendQuestions: (questions: Question[]) => void
+  sendQuestions: (questions: IQuestion[]) => void
 }){
   return (
     <div className={styles.quiz}>

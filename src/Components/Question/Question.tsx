@@ -1,12 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { Answer } from "../Answer/Answer";
 import styles from "./Question.module.css";
+import {IAnswer} from "../../Common/types";
 
-function Question(props) {
+function Question(props:{
+  setResponse: (response: string[] | ((prevResponse: string[]) => string[])) => void;
+  id: number;
+  allAnswers: IAnswer[];
+  showCorrect: boolean;
+  questionText: string;
+  correctAnswer: string;
+}) {
   const [userAnswer, setUserAnswer] = useState(-1);
 
   useEffect(() => {
-    props.setResponse((prevAllAnswers) => {
+    props.setResponse((prevAllAnswers: string[]) => {
       prevAllAnswers[props.id] = props.allAnswers[userAnswer]
         ? props.allAnswers[userAnswer].answer
         : "unanswered";

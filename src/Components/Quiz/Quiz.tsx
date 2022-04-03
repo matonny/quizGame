@@ -2,14 +2,19 @@ import React, {useState} from "react";
 import {Question} from "../Question/Question";
 import styles from "./Quiz.module.css";
 
-function Quiz(props){
+import { IQuestion } from "../../Common/types";
+
+function Quiz(props:{
+    questions: IQuestion[]
+    reset: (questions: IQuestion[] | undefined) => void;
+}){
     const [allUserResponses, setAllUserResponses] = useState([...Array(props.questions.length).fill("unanswered")]);
     const [showCorrect, setShowCorrect] = useState(false);
     console.log(props.questions);
     
     function handleCompletion(){
         if(showCorrect){
-            props.reset("");
+            props.reset(undefined);
         }else{
             setShowCorrect(true);
         }
@@ -28,7 +33,6 @@ function Quiz(props){
                     key={props.questions[index].id}
                     id={props.questions[index].id}
                     setResponse={setAllUserResponses}
-                    debug={allUserResponses}
                     showCorrect={showCorrect}
                      />;
                 })

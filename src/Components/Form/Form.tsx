@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Select } from "../Select/Select";
 import styles from "./Form.module.css";
-import { Question } from "../../Common/types";
+import { IQuestion } from "../../Common/types";
 import he from "he";
 
 interface FormProps {
-  sendQuestions: (questions: Question[]) => void;
+  sendQuestions: (questions: IQuestion[]) => void;
 }
 export interface Root {
   response_code: number;
@@ -34,19 +34,19 @@ function Form(props: FormProps) {
   const difficulty = {
     id: "difficulty",
     label: "Choose difficulty",
-    values: ["any", "easy", "medium", "hard"],
+    possibleValues: ["any", "easy", "medium", "hard"],
   };
   const amount = {
     id: "amount",
     label: "Choose number of questions",
-    values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    possibleValues: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
   };
 
   /**
    * Changes quiz settings based on current values of the form.
    * @param event change of form
    */
-  function handleChange(event: React.FormEvent<HTMLFormElement>) {
+  function handleChange(event: React.ChangeEvent<HTMLSelectElement>) {
     setDisplayError(false);
     const { name, value } = event.currentTarget;
     setQuizSetting((prevQuizSetting) => {
@@ -122,14 +122,14 @@ function Form(props: FormProps) {
    * - puts correct answer at random place of that array
    * - adds ID to each answer
    * @param question
-   * @returns {Question} question matching Question interface
+   * @returns {IQuestion} question matching Question interface
    */
   function prepareQuestion(question: {
     wrongAnswers: string[];
     correctAnswer: string;
     question: string;
     id: number;
-  }): Question {
+  }): IQuestion {
     const allAnswers = addAtRandomPlace(
       question.wrongAnswers,
       question.correctAnswer

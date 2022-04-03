@@ -1,12 +1,17 @@
-import React from "react";
+import React, { ChangeEventHandler } from "react";
 import styles from "./Select.module.css";
 
-function Select(props) {
+function Select(props:{
+  label: string;
+  id: string;
+  possibleValues: string[];
+  value: string;
+  onChange: (event: React.ChangeEvent<HTMLSelectElement>)=>void;
+}) {
   return (
     <div className={styles.selectWrapper}>
       <label className={styles.label} htmlFor={props.id}>
-        {" "}
-        {props.label}{" "}
+        {props.label}
       </label>
       <select
         className={styles.select}
@@ -14,7 +19,7 @@ function Select(props) {
         onChange={props.onChange}
       >
         <option value="">choose</option>
-        {props.values.map((value) => {
+        {props.possibleValues.map((value) => {
           return (
             <option key={value} value={value}>
               {value}
