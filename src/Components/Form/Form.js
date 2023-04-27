@@ -109,7 +109,7 @@ function Form(props) {
       <p className={styles.error}>
         {displayError ? "The form is incomplete!" : ""}
       </p>
-      <input className={styles.submit} type="submit"></input>
+      <input className={styles.submit} type="submit">Play!</input>
     </form>
   );
 }
